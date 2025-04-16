@@ -19,6 +19,8 @@ def display_game_state(mistakes, secret_word, guessed_letters):
         else:
             display_word += "_ "
     print("Word:", display_word.strip())
+    print("\nRemaining mistakes:", MAX_MISTAKES - mistakes)
+    print("Guessed letters:", ", ".join(sorted(list(guessed_letters))))
     print("\n")
 
 def play_game():
@@ -34,7 +36,6 @@ def play_game():
         display_game_state(mistakes, secret_word, guessed_letters)
         guess = input("Guess a letter: ").lower()
 
-        # Input validation: Ensure only a single alphabetical character is entered
         if len(guess) != 1 or not guess.isalpha():
             print("Invalid guess. Please enter a single letter.")
             continue
