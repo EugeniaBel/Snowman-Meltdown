@@ -11,7 +11,7 @@ def get_random_word():
 
 def display_game_state(mistakes, secret_word, guessed_letters):
     """Displays the current game state: snowman and guessed word."""
-    print(STAGES[mistakes])
+    print("\n" + STAGES[mistakes] + "\n")
     display_word = ""
     for letter in secret_word:
         if letter in guessed_letters:
@@ -34,6 +34,7 @@ def play_game():
         display_game_state(mistakes, secret_word, guessed_letters)
         guess = input("Guess a letter: ").lower()
 
+        # Input validation: Ensure only a single alphabetical character is entered
         if len(guess) != 1 or not guess.isalpha():
             print("Invalid guess. Please enter a single letter.")
             continue
